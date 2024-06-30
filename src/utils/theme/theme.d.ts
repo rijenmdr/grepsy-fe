@@ -10,12 +10,12 @@ declare module '@mui/material/Button' {
 
 declare module '@mui/material/styles' {
   interface Palette {
-    light: SimplePaletteColorOptions;
+    neutral: SimplePaletteColorOptions;
     border: SimplePaletteColorOptions;
     icon: SimplePaletteColorOptions;
   }
   interface PaletteOptions {
-    light: SimplePaletteColorOptions;
+    neutral: SimplePaletteColorOptions;
     border: SimplePaletteColorOptions;
     icon: SimplePaletteColorOptions;
   }
