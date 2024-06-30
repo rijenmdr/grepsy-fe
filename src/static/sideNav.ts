@@ -6,7 +6,7 @@ export const sidenavItems = [
   {
     id: 1,
     label: 'Datasets',
-    link: '/'
+    link: '/datasets'
   },
   {
     id: 2,
