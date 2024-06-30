@@ -22,7 +22,7 @@
     "src/**/*.{js,jsx,ts,tsx,json}": [
       "yarn lint"
     ],
-    "src/**/*.{css}": [
+    "src/**/*.css": [
       "yarn stylelint"
     ]
   },
@@ -32,7 +32,8 @@
     "@mui/icons-material": "^5.15.21",
     "@mui/material": "^5.15.21",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.0"
   },
   "devDependencies": {
     "@eslint/compat": "^1.1.0",
