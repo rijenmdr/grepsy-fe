@@ -11,3 +11,27 @@ body {
   font-family: Manrope, sans-serif;
   min-height: 100vh;
 }
+
+.w-16 {
+  width: 1rem;
+}
+
+.h-16 {
+  height: 1rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
