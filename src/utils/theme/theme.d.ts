@@ -3,7 +3,6 @@ import { ButtonPropsVariantOverrides } from '@mui/material/Button';
 import { OverridableStringUnion } from '@mui/types';
 
 declare module '@mui/material/Button' {
-  //@typescript-eslint/no-unused-vars
   interface ButtonPropsVariantOverrides {
     light: true;
   }
