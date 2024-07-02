@@ -21,7 +21,8 @@ const theme = createTheme({
     },
     neutral: {
       main: '#FFFFFF',
-      dark: '#F6F5FB'
+      dark: '#F6F5FB',
+      light: '#DCE2F0'
     },
     border: {
       main: '#E9EAED'
@@ -69,6 +70,24 @@ const theme = createTheme({
           style: {
             backgroundColor: '#D6E7FF',
             color: '#1276FF'
+          }
+        },
+        {
+          props: { variant: 'contained', color: 'neutral' },
+          style: {
+            border: '1px solid #E9EAED',
+            color: '#1B2D4F'
+          }
+        },
+        {
+          props: { variant: 'icon', color: 'neutral' },
+          style: {
+            backgroundColor: '#FFF',
+            color: '#1276FF',
+            border: '1px solid #E9EAED',
+            height: '2rem',
+            width: '2rem',
+            minWidth: '2rem'
           }
         }
       ]
