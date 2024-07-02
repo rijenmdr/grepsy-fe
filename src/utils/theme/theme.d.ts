@@ -5,6 +5,10 @@ import { OverridableStringUnion } from '@mui/types';
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     light: true;
+    icon: true;
+  }
+  interface ButtonPropsColorOverrides {
+    neutral: true;
   }
 }
 
