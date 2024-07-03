@@ -8,8 +8,7 @@ import {
   Paper,
   Typography,
   Box,
-  CircularProgress,
-  tableCellClasses
+  CircularProgress
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import FilterListIcon from '@mui/icons-material/FilterList';
@@ -22,54 +21,33 @@ type CustomTableProps = {
   isLoading: boolean;
 };
 
-// Styled TableCell component
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  // Styles for table header cells
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.neutral.light,
+  [`&.MuiTableCell-head`]: {
+    backgroundColor: theme.palette.neutral?.light,
     color: theme.palette.secondary.main,
     fontWeight: 700,
     fontSize: '0.875rem'
   },
-  // Styles for table body cells
-  [`&.${tableCellClasses.body}`]: {
+  [`&.MuiTableCell-body`]: {
     fontSize: '0.875rem',
     fontWeight: 500
   }
 }));
 
-// Styled TableRow component
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  // Styles for odd-numbered rows
   '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.neutral.dark
-  },
-  // Remove border for the last row
-  '&:last-child td, &:last-child th': {
-    border: 0
+    backgroundColor: theme.palette.neutral?.dark
   }
 }));
 
 const CustomTable = ({ columns, data, isLoading }: CustomTableProps) => {
   return (
     <TableContainer component={Paper} elevation={0}>
-      <Table stickyHeader aria-label="custom table" sx={{ overflow: 'auto' }}>
+      <Table aria-label="custom table">
         <TableHead>
-          <TableRow
-            sx={{
-              //Style for the table head row to show border
-              '& th:first-of-type': {
-                borderTopLeftRadius: '10px',
-                borderBottomLeftRadius: '10px'
-              },
-              '& th:last-of-type': {
-                borderTopRightRadius: '10px',
-                borderBottomRightRadius: '10px'
-              }
-            }}
-          >
+          <TableRow>
             {columns.map((column) => (
-              <StyledTableCell key={column.id} align={column.align} sx={{ minWidth: column.minWidth }}>
+              <StyledTableCell key={column.id} align={column.align}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                   <Box display="flex" alignItems="center">
                     <img src={icons.ascending} alt="ascending" width={24} height={24} />
@@ -81,40 +59,33 @@ const CustomTable = ({ columns, data, isLoading }: CustomTableProps) => {
             ))}
           </TableRow>
         </TableHead>
-        {/* Show the loading progress bar */}
-        {isLoading ? (
-          <Box
-            position="relative"
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            width="100%"
-            height="10rem"
-          >
-            <Box position="absolute" left="50%" right="50%">
-              <CircularProgress size={30} />
-            </Box>
-          </Box>
-        ) : (
-          <TableBody>
-            {data && data.length ? (
-              data.map((row, index) => (
-                <StyledTableRow hover role="checkbox" tabIndex={-1} key={index}>
-                  {columns.map((column) => {
-                    const value = row[column.id];
-                    return (
-                      <StyledTableCell key={column.id} align={column.align}>
-                        {value}
-                      </StyledTableCell>
-                    );
-                  })}
-                </StyledTableRow>
-              ))
-            ) : (
-              <Typography component="tr">No Result.</Typography>
-            )}
-          </TableBody>
-        )}
+        <TableBody>
+          {isLoading ? (
+            <TableRow data-testid="loading-indicator">
+              <TableCell colSpan={columns.length}>
+                <Box display="flex" justifyContent="center" alignItems="center" height="10rem">
+                  <CircularProgress size={30} />
+                </Box>
+              </TableCell>
+            </TableRow>
+          ) : data.length > 0 ? (
+            data.map((row, index) => (
+              <StyledTableRow key={index}>
+                {columns.map((column) => (
+                  <StyledTableCell key={column.id} align={column.align}>
+                    {row[column.id]}
+                  </StyledTableCell>
+                ))}
+              </StyledTableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={columns.length}>
+                <Typography align="center">No Result.</Typography>
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
       </Table>
     </TableContainer>
   );

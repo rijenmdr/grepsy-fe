@@ -19,7 +19,7 @@ const Navbar = ({ handleDrawerToggle }: Props) => {
       position="fixed"
       elevation={0}
       sx={{
-        borderBottom: `1px solid ${theme.palette.border.main}`,
+        borderBottom: `1px solid ${theme.palette.border?.main}`,
         padding: '1rem 2rem',
         width: { md: `calc(100% - ${SIDEBAR_WIDTH}px)` }, // Sets the width to 100% minus the sidebar width on medium and larger screens
         ml: { md: `${SIDEBAR_WIDTH}px` } // Adds left margin equal to the sidebar width on medium and larger screens
@@ -37,20 +37,20 @@ const Navbar = ({ handleDrawerToggle }: Props) => {
             <Menu />
           </IconButton>
 
-          <IconButton color="inherit" edge="start">
+          <IconButton color="inherit" edge="start" aria-label="go back">
             <KeyboardBackspaceIcon
-              sx={{ color: theme.palette.icon.main }}
+              sx={{ color: theme.palette.icon?.main }}
               className="cursor-pointer"
               fontSize="medium"
             />
           </IconButton>
 
-          <Typography color={theme.palette.secondary.main} variant="h6">
+          <Typography color={theme.palette.secondary?.main} variant="h6">
             Amazon product price
           </Typography>
 
-          <IconButton color="inherit" edge="start">
-            <InfoOutlinedIcon sx={{ color: theme.palette.icon.main }} className="cursor-pointer" fontSize="medium" />
+          <IconButton color="inherit" edge="start" aria-label="info">
+            <InfoOutlinedIcon sx={{ color: theme.palette.icon?.main }} className="cursor-pointer" fontSize="medium" />
           </IconButton>
         </Stack>
 
@@ -58,9 +58,9 @@ const Navbar = ({ handleDrawerToggle }: Props) => {
           <Box sx={{ display: { xs: 'none', md: 'block' } }}>
             <CreditUsage totalCreditUsage={200} />
           </Box>
-          <IconButton color="inherit" edge="start">
+          <IconButton color="inherit" edge="start" aria-label="notifications">
             <NotificationsOutlinedIcon
-              sx={{ color: theme.palette.icon.main }}
+              sx={{ color: theme.palette.icon?.main }}
               className="cursor-pointer"
               fontSize="medium"
             />

@@ -34,7 +34,7 @@ const DrawerContainer = () => {
       <Box
         padding={'1rem 2rem'}
         height={'77px'}
-        borderBottom={`1px solid ${theme.palette.border.main}`}
+        borderBottom={`1px solid ${theme.palette.border?.main}`}
         alignContent={'center'}
       >
         <Typography color={theme.palette.secondary.main} variant="h6">
