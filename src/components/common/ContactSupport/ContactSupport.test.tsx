@@ -10,10 +10,6 @@ describe('ContactSupport component', () => {
     // Assert that the text "Need any help?" is present in the component
     const helpTextElement = screen.getByText(/Need any help?/i);
     expect(helpTextElement).toBeInTheDocument();
-
-    // Assert that the "Contact Support" button is rendered
-    const contactButtonElement = screen.getByRole('button', { name: /Contact Support/i });
-    expect(contactButtonElement).toBeInTheDocument();
   });
 
   it('renders "Contact Support" button', () => {
